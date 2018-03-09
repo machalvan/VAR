@@ -1,4 +1,8 @@
 # VAR programming language
+# Copyright 2018 Marcus Hansson
+#
+# Usage: [Python 3 path] var.py [FILE]
+# Ex:    c:\Python34\python.exe var.py test.var
 
 import sys
 import string
