@@ -96,7 +96,7 @@ Notes:
 Example programs:
 
 Hello World! program:
-OUT "Hello World!"
+OUT "Hello World!" 
 
 Cat program:
 INP a
