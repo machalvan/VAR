@@ -1,10 +1,10 @@
 **VAR** is an awesome programming language!
 
 Usage:      [Python 3 path] var.py [FILE]
+
 Example:    c:\Python34\python.exe var.py test.var
 
-Or if you have added the Python directory to your PATH variable, simply:
-            python3 var.py test.var
+Or if you have added the Python directory to your PATH variable, simply: python3 var.py test.var
 
 
 ### Statements
@@ -22,7 +22,6 @@ Examples: “This is a string”, ‘This is a string too!’, “123”
 -   Can (only) contain alphabetical and numeric characters (a-z, A-Z, 0-9).
 -   Can not only contain integers (?)
 -   Could either stand alone ( a ) or be indexed ( a[3] or a[b] ). 
--   
 
 ### Values
 -   A value is either a string, an integer or a variable.
@@ -70,7 +69,7 @@ Examples: WHL a
 
 Notes: 
 
-If no value is given, value 0 (integer) is assumed.
+- If no value is given, value 0 (integer) is assumed.
 
 ### END
 
@@ -91,9 +90,9 @@ Examples: INC a, INC a 5, INC a b
 
 Notes: 
 
-Variables cannot be incremented by a string. 
+- Variables cannot be incremented by a string. 
 
-If no value is given, value 1 (integer) is assumed.
+- If no value is given, value 1 (integer) is assumed.
 
 ### DEC 
 
@@ -105,9 +104,9 @@ Examples: DEC a, DEC a 5, DEC a b
 
 Notes: 
 
-Variables cannot be decremented by a string. 
+- Variables cannot be decremented by a string. 
 
-If no value is given, value 1 (integer) is assumed.
+- If no value is given, value 1 (integer) is assumed.
 
 ### INT 
 
