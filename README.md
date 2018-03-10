@@ -1,4 +1,4 @@
-VAR is an awesome programming language!
+**VAR** is an awesome programming language!
 
 Usage:      [Python 3 path] var.py [FILE]
 Example:    c:\Python34\python.exe var.py test.var
@@ -7,27 +7,27 @@ Or if you have added the Python directory to your PATH variable, simply:
             python3 var.py test.var
 
 
-Statements
+### Statements
 -   Takes up one line of code
 -   Consists of one, two or three parts. 
 -   Is in the form: Command [ Variable [ Value ] ]
 
-Data types (2):
+### Data types (2):
 -   Integers
 Examples: 1, 5, 42
 -   Strings
 Examples: “This is a string”, ‘This is a string too!’, “123”
 
-Variables
+### Variables
 -   Can (only) contain alphabetical and numeric characters (a-z, A-Z, 0-9).
 -   Can not only contain integers (?)
 -   Could either stand alone ( a ) or be indexed ( a[3] or a[b] ). 
 -   
 
-Values
+### Values
 -   A value is either a string, an integer or a variable.
 
-Commands (summery):
+### Commands (summery):
 -   VAR: Assigns a variable.
 -   INP: Reads input from the user.
 -   OUT: Prints output to the user.
@@ -36,7 +36,7 @@ Commands (summery):
 -   INC: Increments a variable.
 -   DEC: Decrements a variable
 
-Commands (7):
+### Commands (7):
 -   Syntax: VAR
 Form: Command + Variable + Value
 Description: Assigns a variable
@@ -93,16 +93,21 @@ Examples: STR a
 Notes: 
 
 
-Example programs:
+### Example programs:
 
 Hello World! program:
+```
 OUT "Hello World!"
+```
 
 Cat program:
+```
 INP a
 OUT a 
+```
 
 Program using all commands:
+```
 OUT "Enter your favorite number: "  // Print string to the user
 INP fav_num                         // Store user input in variable (string) fav_num
 INT fav_num                         // Convert the string fav_num to an integer, if possible
@@ -118,3 +123,4 @@ WHL fav_num                         // As long as fav_num does not equals 0, ent
     INC counter 1                   // Increment counter by 1
     DEC fav_num 1                   // Decrement fav_num by 1
 END                                 // Jump back to the corresponding WHL command on line 6
+```
