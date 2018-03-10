@@ -36,60 +36,97 @@ Examples: “This is a string”, ‘This is a string too!’, “123”
 -   INC: Increments a variable.
 -   DEC: Decrements a variable
 
-### Commands (7):
--   Syntax: VAR
+### VAR
+
 Form: Command + Variable + Value
+
 Description: Assigns a variable
+
 Examples: VAR a “Hello”, VAR a 5, VAR a b
 
--   Syntax: INP
+### INP
+
 Form: Command + Variable
+
 Description: Reads input from the user
+
 Examples: INP a
 
--   Syntax: OUT 
+### OUT 
+
 Form: Command + Value
+
 Description: Prints output to the user.
+
 Examples: OUT a, OUT “Hello”
 
--   Syntax: WHL
+### WHL
+
 Form: Command + Variable (+ Value)
+
 Description: Branches the code reading to after the corresponding END command, if the variable does not equal the value.
+
 Examples: WHL a
+
 Notes: 
+
 If no value is given, value 0 (integer) is assumed.
 
--   Syntax: END
+### END
+
 Form: Command
+
 Description: End of while loop. Branches the code reading back to the corresponding WHL command.
+
 Examples: END
 
--   Syntax: INC
+
+### INC
+
 Form: Command + Variable (+ Value)
+
 Description: Increments a variable.
+
 Examples: INC a, INC a 5, INC a b
+
 Notes: 
+
 Variables cannot be incremented by a string. 
+
 If no value is given, value 1 (integer) is assumed.
 
--   Syntax: DEC 
+### DEC 
+
 Form: Command + Variable (+ Value)
+
 Description: Decrements a variable.
+
 Examples: DEC a, DEC a 5, DEC a b
+
 Notes: 
+
 Variables cannot be decremented by a string. 
+
 If no value is given, value 1 (integer) is assumed.
 
--   Syntax: INT 
+### INT 
+
 Form: Command + Variable
+
 Description: Converts a variable value from a string to an integer, if possible. 
+
 Examples: INT a
+
 Notes: 
 
--   Syntax: STR 
+### STR 
+
 Form: Command + Variable
+
 Description: Converts a variable value from an integer to a string, if possible. 
+
 Examples: STR a
+
 Notes: 
 
 
