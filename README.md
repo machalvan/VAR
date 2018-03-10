@@ -19,8 +19,8 @@ Examples: 1, 5, 42
 Examples: “This is a string”, ‘This is a string too!’, “123”
 
 ### Variables
--   Can (only) contain alphabetical and numeric characters (a-z, A-Z, 0-9).
--   Can not only contain integers (?)
+-   Can (only) contain alphabetical and numeric characters (a-z, A-Z, 0-9)
+-   Can not only contain integers
 -   Could either stand alone ( a ) or be indexed ( a[3] or a[b] ). 
 
 ### Values
@@ -33,7 +33,7 @@ Examples: “This is a string”, ‘This is a string too!’, “123”
 -   WHL: Branches the code reading to after the corresponding END command, if the following variable evaluates to 0. 
 -   END: End of while loop. Branches the code reading back to the corresponding WHL command. 
 -   INC: Increments a variable.
--   DEC: Decrements a variable
+-   DEC: Decrements a variable.
 
 ### VAR
 
@@ -47,7 +47,7 @@ Examples: VAR a “Hello”, VAR a 5, VAR a b
 
 Form: Command + Variable
 
-Description: Reads input from the user
+Description: Reads input from the user.
 
 Examples: INP a
 
