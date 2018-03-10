@@ -100,7 +100,7 @@ OUT "Hello World!"
 
 Cat program:
 INP a
-OUT a
+OUT a 
 
 Program using all commands:
 OUT "Enter your favorite number: "  // Print string to the user
