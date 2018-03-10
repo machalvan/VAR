@@ -149,7 +149,7 @@ INP fav_num                         // Store user input in variable (string) fav
 INT fav_num                         // Convert the string fav_num to an integer, if possible
 VAR counter 1                       // Assign 1 to variable counter
 
-WHL fav_num                         // As long as fav_num does not equals 0, enter the following code block
+WHL fav_num                         // As long as fav_num does not equal 0, enter the following code block
     OUT "Counting: "                // Print string to the user
     STR counter                     // Convert the integer counter to a string
     OUT counter                     // Print counter value to the user
