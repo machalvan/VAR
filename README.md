@@ -160,3 +160,24 @@ WHL fav_num                         // As long as fav_num does not equal 0, ente
     DEC fav_num 1                   // Decrement fav_num by 1
 END                                 // Jump back to the corresponding WHL command on line 6
 ```
+
+If-else program:
+```
+VAR a 1             // Boolean (1 = true, 0 = false)
+VAR a2 a            // Copy a so that we can play with it
+
+VAR not_a 1         // Get "not a"
+WHL a2          
+    VAR not_a 0
+    VAR a2 0
+END 
+
+WHL a               // If
+    OUT "True"
+    VAR a 0
+END
+WHL not_a           // Else
+    OUT "False"
+    VAR not_a 0
+END
+```
