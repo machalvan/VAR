@@ -16,7 +16,7 @@ Or if you have added the Python directory to your PATH variable, simply: python3
 -   Integers
 Examples: 1, 5, 42
 -   Strings
-Examples: “This is a string”, ‘This is a string too!’, “123”
+Examples: “This is a string”, “123”
 
 ### Variables
 -   Can (only) contain alphabetical and numeric characters (a-z, A-Z, 0-9)
