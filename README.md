@@ -1,4 +1,4 @@
-### VAR is an awesome programming language!
+### VAR is an awesome Turing complete programming language!
 
 Usage:      [Python 3 path] var.py [FILE]
 
