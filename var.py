@@ -3,9 +3,6 @@
 #
 # Usage:      [Python 3 path] var.py [FILE]
 # Example:    c:\Python34\python.exe var.py test.var
-#
-# Or if you have added the Python directory to your PATH variable, simply:
-#             python3 var.py test.var
 
 import sys
 import string
