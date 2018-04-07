@@ -1,7 +1,7 @@
 # VAR programming language
 # Copyright 2018 Marcus Hansson
 #
-# Usage:      [Python 3 path] var.py [FILE]
+# Usage:      [Python 3 path] var.py [file name]
 # Example:    c:\Python34\python.exe var.py test.var
 
 import sys
@@ -369,7 +369,7 @@ class Operation:
             error_message += "Cannot " + arg1 + " variable '" + arg2 + "' by a string value (unless length is 1)."
 
         elif number == 4:
-            error_message += "Missing '" + arg1 + "'."
+            error_message += "Missing '" + str(arg1) + "'."
 
         elif number == 5:
             error_message += "Cannot assign '" + arg1 + "' to '" + arg2 + "' by using indexing. Only single value or character allowed."
