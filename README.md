@@ -61,15 +61,11 @@ Examples: OUT a, OUT “Hello”
 
 ### WHL
 
-Form: Command + Variable (+ Value)
+Form: Command + Variable
 
-Description: Branches the code reading to after the corresponding END command, if the variable does not equal the value.
+Description: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
 
 Examples: WHL a
-
-Notes: 
-
-- If no value is given, value 0 (integer) is assumed.
 
 ### END
 
@@ -116,8 +112,6 @@ Description: Converts a variable value from a string to an integer, if possible.
 
 Examples: INT a
 
-Notes: 
-
 ### STR 
 
 Form: Command + Variable
@@ -125,9 +119,6 @@ Form: Command + Variable
 Description: Converts a variable value from an integer to a string, if possible. 
 
 Examples: STR a
-
-Notes: 
-
 
 ### Example programs:
 
@@ -166,11 +157,11 @@ If-else program:
 VAR a 1             // Boolean (1 = true, 0 = false)
 VAR a2 a            // Copy a so that we can play with it
 
-VAR not_a 1         // Get "not a"
-WHL a2          
-    VAR not_a 0
-    VAR a2 0
-END 
+VAR not_a 1         //
+WHL a2              //
+    VAR not_a 0     // Get "not a"
+    VAR a2 0        //
+END                 //
 
 WHL a               // If
     OUT "True"
