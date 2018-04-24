@@ -191,50 +191,6 @@ class Operation:
         else:
             self.variables[var_name][0] = (var_value[0] - adj_value) % 255
 
-    def decrement_variable(self, var_name, dec_value):
-        if len(dec_value) > 1:
-            self.print_error(3, "decrement", var_name)
-
-        try:
-            dec_value = int(dec_value[0])
-        except ValueError as e:
-            self.print_error(2, "decrement", var_name, dec_value)
-
-        self.next_char()
-
-        if var_name in self.variables:
-            var_value = self.variables[var_name]
-        else:
-            self.print_error(1, var_name)
-
-        if len(var_value) > 1:
-             self.print_error(3, "decrement", self.convert_from_ascii(var_value))
-
-        self.variables[var_name][0] = (var_value[0] - dec_value) % 255
-
-    def increment_variable(self, var_name, inc_value):
-        if len(inc_value) > 1:
-            self.print_error(3, "increment", var_name)
-
-        try:
-            inc_value = int(inc_value[0])
-        except ValueError as e:
-            self.print_error(2, "increment", var_name, inc_value)
-
-        self.next_char()
-
-        if var_name in self.variables:
-            var_value = self.variables[var_name]
-        else:
-            self.print_error(1, var_name)
-
-        if len(var_value) > 1:
-             self.print_error(3, "increment", self.convert_from_ascii(var_value))
-
-        self.variables[var_name][0] = (var_value[0] + inc_value) % 255
-
-        print(self.variables[var_name][0])
-
     def get_chars_until(self, end_char_list):
         chars = ""
 
@@ -319,14 +275,12 @@ class Operation:
     def while_not_zero(self):
         var_name = self.get_chars_until([NEW_LINE])
 
-        value_list = []
+        new_index = self.code_pointer - len(var_name)
+        self.set_char(new_index)
 
-        if var_name in self.variables.keys():
-            value_list = self.variables[var_name].copy()
-        else:
-            self.print_error(1, var_name)
+        ascii_list = self.get_variable_as_ascii_list()
 
-        var_value = value_list[0]
+        var_value = ascii_list[0]
 
         if var_value == 0:
             self.code_pointer = self.loops[self.code_pointer - len(var_name) - 1]

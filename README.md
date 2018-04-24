@@ -133,6 +133,42 @@ INP a
 OUT a 
 ```
 
+Reverse string program:
+```
+VAR a "Hello, World!"
+VAR index 0
+
+WHL a[index]        // When index is equal to the length of a, then a[index] will return 0 and looping will stop
+    INC index
+END
+
+WHL index           // Index starts at 13 and decrements by 1 every iteration
+    DEC index
+    OUT a[index]
+END
+```
+
+If-else program:
+```
+VAR a 1             // Boolean (1 = true, 0 = false)
+VAR a2 a            // Copy a so that we can play with it
+VAR not_a 1         // Assume that "not a" is true, change in next step if incorrect
+
+WHL a2              // Set "not a"
+    VAR not_a 0     
+    VAR a2 0        
+END                 
+
+WHL a               // If
+    OUT "True"
+    VAR a 0
+END
+WHL not_a           // Else
+    OUT "False"
+    VAR not_a 0
+END
+```
+
 Program using all commands:
 ```
 OUT "Enter your favorite number: "  // Print string to the user
@@ -150,25 +186,4 @@ WHL fav_num                         // As long as fav_num does not equal 0, ente
     INC counter 1                   // Increment counter by 1
     DEC fav_num 1                   // Decrement fav_num by 1
 END                                 // Jump back to the corresponding WHL command on line 6
-```
-
-If-else program:
-```
-VAR a 1             // Boolean (1 = true, 0 = false)
-VAR a2 a            // Copy a so that we can play with it
-
-VAR not_a 1         //
-WHL a2              //
-    VAR not_a 0     // Get "not a"
-    VAR a2 0        //
-END                 //
-
-WHL a               // If
-    OUT "True"
-    VAR a 0
-END
-WHL not_a           // Else
-    OUT "False"
-    VAR not_a 0
-END
 ```
