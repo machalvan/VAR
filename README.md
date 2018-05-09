@@ -12,7 +12,7 @@ Or if you have added the Python directory to your PATH variable, simply: python3
 -   Consists of one, two or three parts. 
 -   Is in the form: Command [ Variable [ Value ] ]
 
-### Data types (2):
+### Data type:
 -   Integers
 Examples: 1, 5, 42
 -   Strings
