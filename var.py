@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # VAR programming language
 # Copyright 2018 Marcus Hansson
 #
