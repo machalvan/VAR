@@ -28,6 +28,61 @@ BRACKET_LEFT = "["
 BRACKET_RIGHT = "]"
 COMMENT = "//"
 
+
+def convert_from_ascii(value_list):
+    value = ""
+
+    while value_list[len(value_list) - 1] == 0:
+        del value_list[-1]
+        if len(value_list) == 0:
+            break
+
+    for number in value_list:
+        value += chr(number)
+
+    return value
+
+
+def convert_to_ascii(string):
+    value_list = []
+
+    for char in string:
+        value_list.append(ord(char))
+
+    return value_list
+
+
+def print_error(number, arg1="", arg2="", arg3=""):
+    error_message = "\nERROR: "
+
+    if number == 1:
+        error_message += "No variable named '" + arg1 + "'."
+
+    elif number == 2:
+        error_message += "Cannot " + arg1 + " variable '" + arg2 + "' with '" + arg3 + "'."
+
+    elif number == 3:
+        error_message += "Cannot " + arg1 + " variable '" + arg2 + "' by a string value (unless length is 1)."
+
+    elif number == 4:
+        error_message += "Missing '" + str(arg1) + "'."
+
+    elif number == 5:
+        error_message += "Cannot assign '" + arg1 + "' to '" + arg2 + "' by using indexing. Only single value or character allowed."
+
+    elif number == 6:
+        error_message += "Cannot make variable '" + arg1 + "' to type integer."
+
+    elif number == 7:
+        error_message += "Cannot make variable '" + arg1 + "' to type string."
+
+    elif number == 8:
+        error_message += "Invalid syntax."
+
+    print(error_message)
+    sys.exit()
+
+
 class Operation:
     def __init__(self, code):
         self.code = code
@@ -63,7 +118,6 @@ class Operation:
             else:
                 if char == "\n":
                     command_position = True
-
 
     def update_char(self):
         try:
@@ -134,7 +188,7 @@ class Operation:
     def get_string_as_ascii_list(self):
         self.next_char()
         string = self.get_chars_until([QUOTATION_MARK])
-        ascii_list = self.convert_to_ascii(string)
+        ascii_list = convert_to_ascii(string)
         return ascii_list
 
     def get_number_as_ascii_list(self):
@@ -145,7 +199,7 @@ class Operation:
     def create_input_variable(self):
         var_name = self.get_chars_until([NEW_LINE])
         var_value = input()
-        ascii_list = self.convert_to_ascii(var_value)
+        ascii_list = convert_to_ascii(var_value)
 
         self.assign_variable(var_name, None, ascii_list)
 
@@ -171,22 +225,22 @@ class Operation:
         adj_value = self.get_var_change()
 
         if len(adj_value) > 1:
-            self.print_error(3, adjust_string, var_name)
+            print_error(3, adjust_string, var_name)
 
         try:
             adj_value = int(adj_value[0])
         except ValueError as e:
-            self.print_error(2, adjust_string, var_name, adj_value)
+            print_error(2, adjust_string, var_name, adj_value)
 
         self.next_char()
 
         if var_name in self.variables:
             var_value = self.variables[var_name]
         else:
-            self.print_error(1, var_name)
+            print_error(1, var_name)
 
         if len(var_value) > 1:
-             self.print_error(3, adjust_string, self.convert_from_ascii(var_value))
+            print_error(3, adjust_string, convert_from_ascii(var_value))
 
         if adjust_string == "increment":
             self.variables[var_name][0] = (var_value[0] + adj_value) % 255
@@ -200,7 +254,7 @@ class Operation:
             chars += self.char
 
             if not self.next_char():
-                self.print_error(4, end_char_list)
+                print_error(4, end_char_list)
 
         return chars
 
@@ -210,28 +264,7 @@ class Operation:
         if var_name in self.variables.keys():
             value_list = self.variables[var_name].copy()
         else:
-            self.print_error(1, var_name)
-
-        return value_list
-
-    def convert_from_ascii(self, value_list):
-        value = ""
-
-        while value_list[len(value_list) - 1] == 0:
-            del value_list[-1]
-            if len(value_list) == 0:
-                break
-
-        for number in value_list:
-            value += chr(number)
-
-        return value
-
-    def convert_to_ascii(self, string):
-        value_list = []
-
-        for char in string:
-            value_list.append(ord(char))
+            print_error(1, var_name)
 
         return value_list
 
@@ -246,7 +279,7 @@ class Operation:
             var_index = int(inside_brackets_ascii_list[0])
 
         else:
-            self.print_error(8)
+            print_error(8)
 
         self.next_char()
 
@@ -263,16 +296,15 @@ class Operation:
             ascii_list = self.get_variable_as_ascii_list()
 
         else:
-            self.print_error(8)
+            print_error(8)
 
         return ascii_list
 
     def print_output(self):
         ascii_list = self.get_value()
-        output = self.convert_from_ascii(ascii_list)
+        output = convert_from_ascii(ascii_list)
 
         print(output, end="")
-
 
     def while_not_zero(self):
         var_name = self.get_chars_until([NEW_LINE])
@@ -294,63 +326,32 @@ class Operation:
     def make_integer(self):
         var_name = self.get_chars_until([NEW_LINE])
         ascii_list = self.variables[var_name].copy()
-        var_value = self.convert_from_ascii(ascii_list)
+        var_value = convert_from_ascii(ascii_list)
 
         try:
             self.variables[var_name] = [int(var_value)]
         except ValueError as e:
             print(e)
-            self.print_error(6, var_name)
+            print_error(6, var_name)
 
     def make_string(self):
         var_name = self.get_chars_until([NEW_LINE])
         ascii_list = self.variables[var_name].copy()
 
         if len(ascii_list) == 1:
-            self.variables[var_name] = self.convert_to_ascii(str(ascii_list[0]))
+            self.variables[var_name] = convert_to_ascii(str(ascii_list[0]))
         else:
-            self.print_error(7, var_name)
-
-
-    def print_error(self, number, arg1="", arg2="", arg3=""):
-        error_message = "\nERROR: "
-
-        if number == 1:
-            error_message += "No variable named '" + arg1 + "'."
-
-        elif number == 2:
-            error_message += "Cannot " + arg1 + " variable '" + arg2 + "' with '" + arg3 + "'."
-
-        elif number == 3:
-            error_message += "Cannot " + arg1 + " variable '" + arg2 + "' by a string value (unless length is 1)."
-
-        elif number == 4:
-            error_message += "Missing '" + str(arg1) + "'."
-
-        elif number == 5:
-            error_message += "Cannot assign '" + arg1 + "' to '" + arg2 + "' by using indexing. Only single value or character allowed."
-
-        elif number == 6:
-            error_message += "Cannot make variable '" + arg1 + "' to type integer."
-
-        elif number == 7:
-            error_message += "Cannot make variable '" + arg1 + "' to type string."
-
-        elif number == 8:
-            error_message += "Invalid syntax."
-
-        print(error_message)
-        sys.exit()
+            print_error(7, var_name)
 
 
 def execute(file_name):
     with open(file_name) as f:
-        code = clean_code(f.readlines())
+        code = clean_up_code(f.readlines())
         compile_code(code)
         f.close()
 
-def clean_code(code):
-    COMMENT = "//"
+
+def clean_up_code(code):
     clean_code = ""
 
     for line in code:
@@ -363,6 +364,7 @@ def clean_code(code):
             clean_code += line + "\n"
 
     return clean_code
+
 
 def compile_code(code):
     op = Operation(code)
@@ -409,11 +411,13 @@ def compile_code(code):
             command += op.char
             op.next_char()
 
+
 def main():
     if len(sys.argv) == 2:
         execute(sys.argv[1])
     else:
         print("Please pass code file as argument: python3", sys.argv[0], "file_name")
+
 
 if __name__ == "__main__":
     main()
