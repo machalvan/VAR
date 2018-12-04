@@ -243,9 +243,9 @@ class Operation:
             print_error(3, adjust_string, convert_from_ascii(var_value))
 
         if adjust_string == "increment":
-            self.variables[var_name][0] = (var_value[0] + adj_value) % 255
+            self.variables[var_name][0] = var_value[0] + adj_value
         else:
-            self.variables[var_name][0] = (var_value[0] - adj_value) % 255
+            self.variables[var_name][0] = var_value[0] - adj_value
 
     def get_chars_until(self, end_char_list):
         chars = ""
