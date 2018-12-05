@@ -195,6 +195,7 @@ class Operation:
     def get_string_as_ascii_list(self):
         self.next_char()
         string = self.get_chars_until([QUOTATION_MARK])
+        self.next_char()
         ascii_list = convert_to_ascii(string)
         return ascii_list
 
@@ -310,13 +311,14 @@ class Operation:
     def print_output(self):
         ascii_list = self.get_value()
         output = convert_from_ascii(ascii_list)
+
+        print(output, end="")
+
         ending_newlines = 1
 
         if self.char == " ":
             self.next_char()
             ending_newlines = int(self.get_value()[0])
-
-        print(output, end="")
 
         for _ in range(ending_newlines):
             print()
