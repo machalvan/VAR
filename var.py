@@ -47,6 +47,9 @@ def convert_from_ascii(value_list):
 def convert_to_ascii(string):
     value_list = []
 
+    if string == "":
+        return [0]
+
     for char in string:
         value_list.append(ord(char))
 
