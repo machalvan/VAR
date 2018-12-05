@@ -18,6 +18,7 @@ WHILE = "WHL"
 END = "END"
 INTEGER = "INT"
 STRING = "STR"
+CONDITION = "CON"
 
 LETTERS = string.ascii_lowercase + string.ascii_uppercase
 NUMBERS = "0123456789"
@@ -103,11 +104,14 @@ class Operation:
                     command_position = False
 
                     if command == WHILE:
-                        temp_loop_stack.append(position)
+                        temp_loop_stack.append((position, 1))
+
+                    elif command == CONDITION:
+                        temp_loop_stack.append((position, 0))
 
                     elif command == END:
                         start = temp_loop_stack.pop()
-                        self.loops[start] = position
+                        self.loops[start[0]] = position
                         self.loops[position] = start
                         command_position = True
 
@@ -306,7 +310,7 @@ class Operation:
 
         print(output, end="")
 
-    def while_not_zero(self):
+    def check_if_true(self):
         var_name = self.get_chars_until([NEW_LINE])
 
         new_index = self.code_pointer - len(var_name)
@@ -320,8 +324,11 @@ class Operation:
             self.code_pointer = self.loops[self.code_pointer - len(var_name) - 1]
 
     def end_while(self):
-        self.set_char(self.loops[self.code_pointer - 1] + 1)
-        self.while_not_zero()
+        block_start_pos, repeat = self.loops[self.code_pointer - 1]
+
+        if repeat:
+            self.set_char(block_start_pos + 1)
+            self.check_if_true()
 
     def make_integer(self):
         var_name = self.get_chars_until([NEW_LINE])
@@ -394,7 +401,7 @@ def compile_code(code):
                 op.decrement_value()
 
             elif command == WHILE:
-                op.while_not_zero()
+                op.check_if_true()
 
             elif command == END:
                 op.end_while()
@@ -404,6 +411,9 @@ def compile_code(code):
 
             elif command == STRING:
                 op.make_string()
+
+            elif command == CONDITION:
+                op.check_if_true()
 
             command = ""
 
