@@ -199,7 +199,7 @@ class Operation:
         return ascii_list
 
     def get_number_as_ascii_list(self):
-        var_value = self.get_chars_until([NEW_LINE])
+        var_value = self.get_chars_until([NEW_LINE, SPACE])
         ascii_list = [int(var_value)]
         return ascii_list
 
@@ -310,8 +310,16 @@ class Operation:
     def print_output(self):
         ascii_list = self.get_value()
         output = convert_from_ascii(ascii_list)
+        ending_newlines = 1
+
+        if self.char == " ":
+            self.next_char()
+            ending_newlines = int(self.get_value()[0])
 
         print(output, end="")
+
+        for _ in range(ending_newlines):
+            print()
 
     def check_if_true(self):
         var_name = self.get_chars_until([NEW_LINE])
