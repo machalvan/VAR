@@ -314,13 +314,13 @@ class Operation:
 
         print(output, end="")
 
-        ending_newlines = 1
+        ending_newline_flag = 1
 
         if self.char == " ":
             self.next_char()
-            ending_newlines = int(self.get_value()[0])
+            ending_newline_flag = int(self.get_value()[0])
 
-        for _ in range(ending_newlines):
+        if ending_newline_flag:
             print()
 
     def check_if_true(self):
