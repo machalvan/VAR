@@ -6,6 +6,7 @@ Example:    c:\Python34\python.exe var.py test.var
 
 Or if you have added the Python directory to your PATH variable, simply: python3 var.py test.var
 
+Code examples can be find at the bottom of this page
 
 ### Statements
 -   Takes up one line of code
@@ -38,7 +39,7 @@ Examples: “This is a string”, “123”
          Else, enter the following code block until variable is 0. 
 -   CON: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
          Else, enter the following code block once.
--   END: End of code block. Branches the code reading back to the corresponding WHL command. 
+-   END: End of code block. 
 -   INC: Increments a variable.
 -   DEC: Decrements a variable.
 
@@ -179,7 +180,7 @@ Examples:
 STR a
 ```
 
-### Example programs:
+### Example programs
 
 Hello World! program:
 ```
