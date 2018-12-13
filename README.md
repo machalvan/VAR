@@ -34,8 +34,11 @@ Examples: “This is a string”, “123”
 -   VAR: Assigns a variable.
 -   INP: Reads input from the user.
 -   OUT: Prints output to the user.
--   WHL: Branches the code reading to after the corresponding END command, if the following variable evaluates to 0. 
--   END: End of while loop. Branches the code reading back to the corresponding WHL command. 
+-   WHL: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
+         Else, enter the following code block until variable is 0. 
+-   CON: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
+         Else, enter the following code block once.
+-   END: End of code block. Branches the code reading back to the corresponding WHL command. 
 -   INC: Increments a variable.
 -   DEC: Decrements a variable.
 
@@ -94,6 +97,7 @@ END
 Form: Command + Variable
 
 Description: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
+Else, enter the following code block once.
 
 Examples: 
 ```
