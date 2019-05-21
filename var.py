@@ -8,6 +8,7 @@
 
 import sys
 import string
+import array
 
 VARIABLE = "VAR"
 OUTPUT = "OUT"
