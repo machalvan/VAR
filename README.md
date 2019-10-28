@@ -1,10 +1,10 @@
 ### VAR is an awesome Turing complete programming language!
 
-Usage:      [Python 3 path] var.py [FILE]
+Usage:      python var.py [FILE]
 
-Example:    c:\Python34\python.exe var.py test.var
+Example:    python var.py test.var
 
-Or if you have added the Python directory to your PATH variable, simply: python3 var.py test.var
+Python have to be in your PATH environment variable.
 
 Code examples can be find at the bottom of this page
 
@@ -35,13 +35,13 @@ Examples: “This is a string”, “123”
 -   VAR: Assigns a variable.
 -   INP: Reads input from the user.
 -   OUT: Prints output to the user.
--   WHL: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
-         Else, enter the following code block until variable is 0. 
--   CON: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
-         Else, enter the following code block once.
+-   WHL: While statement. Branches the code reading to after the corresponding END command, if the variable does not equal            0. Else, enter the following code block until variable is 0. 
+-   CON: Conditional statement. Branches the code reading to after the corresponding END command, if the variable does not            equal 0. Else, enter the following code block once.
 -   END: End of code block. 
 -   INC: Increments a variable.
 -   DEC: Decrements a variable.
+-   INT: Converts a variable value from a string to an integer, if possible.
+-   STR: Converts a variable value from an integer to a string, if possible.
 
 ### VAR
 
@@ -83,7 +83,7 @@ OUT “Hello”
 
 Form: Command + Variable
 
-Description: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
+Description: While statement. Branches the code reading to after the corresponding END command, if the variable does not equal 0.
 Else, enter the following code block until variable is 0.
 
 Examples: 
@@ -97,7 +97,7 @@ END
 
 Form: Command + Variable
 
-Description: Branches the code reading to after the corresponding END command, if the variable does not equal 0.
+Description: Conditional statement. Branches the code reading to after the corresponding END command, if the variable does not equal 0.
 Else, enter the following code block once.
 
 Examples: 
